@@ -19,9 +19,10 @@ td { width : 60px; }
 
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script>
+  var num_col = 100
   var idx = 0;
   $('#add_row').click(function() {
-    $('#mytable > tbody:last').append('<tr><td id = ' + idx + '>' + '<input type = "checkbox">' + '</td></tr>');
+    $('#mytable > tbody:last').append('<tr><td colspan = '+ num_col +' id = ' + idx + '>' + '<input type = "checkbox">' + '</td></tr>');
     idx = idx + 1;
   });
   $('#del_row').click(function() {
@@ -29,6 +30,6 @@ td { width : 60px; }
   });
   $('#add_cell').click(function() {
     $('tr').append('<td id = ' + idx + '>' + '<input type = "checkbox">' + '</td>');
-    idx = idx + 1;
+    num_col = num_col - 1
   });
 </script>
