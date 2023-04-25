@@ -7,7 +7,7 @@ td { width : 60px; }
 <button id='del_row'>행 삭제</button>
 <button id='add_cell'>셀 추가</button>
 <hr>
-
+https://blog.naver.com/deeperain/221504621839
 <table id="mytable" border="1" cellspacing="0">
   <thead>
     <tr>
@@ -20,15 +20,17 @@ td { width : 60px; }
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script>
   var num_col = 10;
-  var idx = 0;
   $('#add_row').click(function() {
-    $('#mytable > tbody:last').append('<tr><td colspan = '+ num_col +' id = ' + idx + '>' + '<input type = "checkbox">' + '</td></tr>');
-    idx = idx + 1;
+    $('#mytable > tbody:last').append('<tr><td colspan = '+ num_col + '>' + '<input type = "checkbox" name = "ch_box">' + '</td></tr>');
   });
   $('#del_row').click(function() {
     $('#mytable > tbody > tr:last').remove();
   });
   $('#add_cell').click(function() {
+    var checkbox = $("input[name=ch_box]:checked");
+    checkbox.each(funtion(i{
+       var td = checkbox.parent().eq(i);
+                          });
     var col_idx1 = $('#1').attr('colspan');
     var col_idx2 = col_idx1;
     if (col_idx1 % 2 == 1){
@@ -40,6 +42,6 @@ td { width : 60px; }
     }
     idx = idx + 1;
     $('#1').attr('colspan', col_idx1);
-    $('#1').closest('tr').append('<td id = ' + idx + ' colspan = ' + col_idx2 + '>' + '<input type = "checkbox">' + '</td>');
+    $('#1').closest('tr').append('<td colspan = ' + col_idx2 + '>' + '<input type = "checkbox">' + '</td>');
   });
 </script>
