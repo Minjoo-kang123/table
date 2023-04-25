@@ -38,6 +38,7 @@ td { width : 60px; }
       col_idx1 = col_idx1 / 2;
       col_idx2 = col_idx1 / 2;
     }
+    idx = idx + 1;
     $('#1').attr('colspan', 'col_idx1');
     $('#1').closest('tr').append('<td id = ' + idx + 'colspan = ' + col_idx2 + '>' + '<input type = "checkbox">' + '</td>');
   });
