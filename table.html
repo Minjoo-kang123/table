@@ -33,7 +33,7 @@ td { width : 60px; }
     var col_idx2 = col_idx1;
     if (col_idx1 % 2 == 1){
       col_idx1 = Math.floor(col_idx1 / 2) + 1;
-      col_idx2 = col_idx1 / 2;
+      col_idx2 = Math.floor(col_idx1 / 2);
     }else{
       col_idx1 = col_idx1 / 2;
       col_idx2 = col_idx1 / 2;
