@@ -29,6 +29,8 @@ td { width : 60px; }
     $('#mytable > tbody > tr:last').remove();
   });
   $('#add_cell').click(function() {
-    $('#1').closest('tr').append('<td id = ' + idx + '>' + '<input type = "checkbox">' + '</td>');
+    var col_idx1 = $('#1').attr('colspan');
+    var col_idx2 = col_idx1
+    $('#1').closest('tr').append('<td id = ' + idx + '>' + '<input type = "checkbox">' + col_idx1 + '</td>');
   });
 </script>
