@@ -1,0 +1,35 @@
+<style>
+tr { height: 20px; }
+td { width : 60px; }
+</style>
+
+<button id='add_row'>행 추가</button>
+<button id='del_row'>행 삭제</button>
+<button id='add_cell'>셀 추가</button>
+<hr>
+https://blog.naver.com/deeperain/221504621839
+https://redcow77.tistory.com/640
+<table id="mytable" border="1" cellspacing="0">
+  <thead>
+    <tr>
+      <th>ITEM</th>
+    </tr>
+  </thead>
+  <tbody></tbody>
+</table>
+
+<script src="//code.jquery.com/jquery.min.js"></script>
+<script>
+  var num_col = 10;
+  $('#add_row').click(function() {
+    $('#mytable > tbody:last').append('<tr><td colspan = '+ num_col + '>' + '<input type = "checkbox" name = "ch_box">' + '</td></tr>');
+  });
+  $('#del_row').click(function() {
+    $('#mytable > tbody > tr:last').remove();
+  });
+  $('#add_cell').click(function() {
+    $("input:checkbox[name='ch_box']:checked).each(function(k, kVal){
+      let a = kVal.parentElement.parentElement
+      $(a).after('<td colspan = ' + 5 + '>' + '<input type = "checkbox">' + '</td>');
+  });
+</script>
