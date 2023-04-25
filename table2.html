@@ -20,7 +20,7 @@ https://redcow77.tistory.com/640
 
 <script src="//code.jquery.com/jquery.min.js"></script>
 <script>
-  var num_col = 10;
+  var num_col = 100;
   $('#add_row').click(function() {
     $('#mytable > tbody:last').append('<tr><td colspan = '+ num_col + '>' + '<input type = "checkbox" name = "ch_box">' + '</td></tr>');
   });
@@ -30,7 +30,19 @@ https://redcow77.tistory.com/640
   $('#add_cell').click(function() {
     $("input:checkbox[name='ch_box']:checked").each(function(k, kVal){
       let a = kVal.parentElement
-      $(a).after('<td colspan = ' + 5 + '>' + '<input type = "checkbox">' + '</td>');
+      var col_idx1 = $(a).attr('colspan');
+      var col_idx2 = col_idx1;
+      if (col_idx1 > 1){
+        if (col_idx1 % 2 == 1){
+          col_idx1 = Math.floor(col_idx1 / 2) + 1;
+          col_idx2 = Math.floor(col_idx1 / 2);
+        }else{
+          col_idx1 = col_idx1 / 2;
+          col_idx2 = col_idx1 / 2;
+        }
+        $(a).attr('colspan', col_idx1);
+        $(a).after('<td colspan = ' + col_idx2 + '>' + '<input type = "checkbox"  name = "ch_box">' + '</td>');
+      }
       });
   });
 </script>
