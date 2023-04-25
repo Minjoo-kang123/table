@@ -29,7 +29,7 @@ https://redcow77.tistory.com/640
   });
   $('#add_cell').click(function() {
     $("input:checkbox[name='ch_box']:checked").each(function(k, kVal){
-      let a = kVal.parentElement.parentElement
+      let a = kVal.parentElement
       $(a).after('<td colspan = ' + 5 + '>' + '<input type = "checkbox">' + '</td>');
       });
   });
