@@ -31,7 +31,7 @@ td { width : 60px; }
   $('#add_cell').click(function() {
     var col_idx1 = $('#1').attr('colspan');
     var col_idx2 = col_idx1;
-    if (var % 2 == 1){
+    if (col_idx1 % 2 == 1){
       col_idx1 = col_idx1 / 2 + 1;
       col_idx2 = col_idx1 / 2;
     }else{
