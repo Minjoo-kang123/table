@@ -28,7 +28,7 @@ https://redcow77.tistory.com/640
     $('#mytable > tbody > tr:last').remove();
   });
   $('#add_cell').click(function() {
-    $("input:checkbox[name='ch_box']:checked).each(function(k, kVal){
+    $("input:checkbox[name='ch_box']:checked").each(function(k, kVal){
       let a = kVal.parentElement.parentElement
       $(a).after('<td colspan = ' + 5 + '>' + '<input type = "checkbox">' + '</td>');
       });
