@@ -12,7 +12,7 @@ https://redcow77.tistory.com/640
 <table id="mytable" border="1" cellspacing="0">
   <thead>
     <tr>
-      <th>ITEM</th>
+      <th colspan = 100>표</th>
     </tr>
   </thead>
   <tbody></tbody>
@@ -32,7 +32,7 @@ https://redcow77.tistory.com/640
       let a = kVal.parentElement
       var col_idx1 = $(a).attr('colspan');
       var col_idx2 = col_idx1;
-      if (col_idx1 > 1){
+      if (col_idx1 >= 2){
         if (col_idx1 % 2 == 1){
           col_idx1 = Math.floor(col_idx1 / 2) + 1;
           col_idx2 = Math.floor(col_idx1 / 2);
