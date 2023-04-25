@@ -19,7 +19,7 @@ thead { background-color: skyblue; }
 <script>
   var idx = 0;
   $('#btn-add-row').click(function() {
-    $('#mytable > tbody:last').append('<tr id = ' + idx + '></tr>');
+    $('#mytable > tbody:last').append('<tr id = ' + idx + '><td></td></tr>');
     idx = idx + 1;
   });
   $('#btn-delete-row').click(function() {
