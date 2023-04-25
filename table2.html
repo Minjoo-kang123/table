@@ -35,10 +35,10 @@ https://redcow77.tistory.com/640
       if (col_idx1 >= 2){
         if (col_idx1 % 2 == 1){
           col_idx1 = parseInt(col_idx1 / 2) + 1;
-          col_idx2 = parseInt(col_idx1 / 2);
+          col_idx2 = parseInt(col_idx2 / 2);
         }else{
           col_idx1 = col_idx1 / 2;
-          col_idx2 = col_idx1 / 2;
+          col_idx2 = col_idx2 / 2;
         }
         $(a).attr('colspan', col_idx1);
         $(a).after('<td colspan = ' + col_idx2 + '>' + '<input type = "checkbox"  name = "ch_box">' + '</td>');
