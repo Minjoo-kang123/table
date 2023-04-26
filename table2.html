@@ -10,6 +10,7 @@
         table {
             width: 1000px;
             margin: 0 auto;
+            border : 1;
         }
 
         tr {
@@ -34,7 +35,7 @@
         <button id='del_row'>행 삭제</button>
         <button id='add_cell'>셀 추가</button>
         <br><hr>
-        <table id="mytable" border="1">
+        <table id="mytable" >
             <thead>
                 <tr>
                     <th colspan=100>표</th>
@@ -43,6 +44,8 @@
             <tbody></tbody>
         </table>
     </div>
+    <!-- 전체적인 접근, 선택, 추가는 javaScript 함수를 이용하지 않고 jQuery를 이용함
+        내부의 colspan 계산은 javaScript 이용-->
     <script src="//code.jquery.com/jquery.min.js"></script>
     <script>
         var num_col = 100;
@@ -52,9 +55,15 @@
         $('#del_row').click(function () {
             $('#mytable > tbody > tr:last').remove();
         });
+        /* 다수의 셀 동시 분할을 위해서 each 이용 현재 코드 내에서 100개 분할이 가능
+            그러나 해당 100개 분할은 순서대로 모든 셀을 선택한 뒤 가능함
+            >> 셀 분할에 대한 제한이 생김
+        */
         $('#add_cell').click(function () {
             $("input:checkbox[name='ch_box']:checked").each(function (k, kVal) {
-                var cell = kVal.parentElement
+                /* 체크박스의 부모 엘리먼트를 통해 선택한 셀에 접근
+                    이후 해당 셀의 colspan 값을 통해 셀 추가후 colspan 값을 나누어 가지는 것으로 분할로 보이도록 할 예정 */
+                let cell = kVal.parentElement
                 var col_idx1 = $(cell).attr('colspan');
                 var col_idx2 = col_idx1;
                 if (col_idx1 >= 2) {
