@@ -1,50 +1,79 @@
-<style>
-  table{ width : 500px;}  
-tr { height: 20px; }
-td { width : 60px; }
-div { margin : auto 0; }
-</style>
-<div>
-<button id='add_row'>행 추가</button>
-<button id='del_row'>행 삭제</button>
-<button id='add_cell'>셀 추가</button>
-<hr>
-https://blog.naver.com/deeperain/221504621839
-https://redcow77.tistory.com/640
-<table id="mytable" border="1" cellspacing="0">
-  <thead>
-    <tr>
-      <th colspan = 100>표</th>
-    </tr>
-  </thead>
-  <tbody></tbody>
-</table>
-<div>
-<script src="//code.jquery.com/jquery.min.js"></script>
-<script>
-  var num_col = 100;
-  $('#add_row').click(function() {
-    $('#mytable > tbody:last').append('<tr><td colspan = '+ num_col + '>' + '<input type = "checkbox" name = "ch_box">' + '</td></tr>');
-  });
-  $('#del_row').click(function() {
-    $('#mytable > tbody > tr:last').remove();
-  });
-  $('#add_cell').click(function() {
-    $("input:checkbox[name='ch_box']:checked").each(function(k, kVal){
-      let a = kVal.parentElement
-      var col_idx1 = $(a).attr('colspan');
-      var col_idx2 = col_idx1;
-      if (col_idx1 >= 2){
-        if (col_idx1 % 2 == 1){
-          col_idx1 = parseInt(col_idx1 / 2) + 1;
-          col_idx2 = parseInt(col_idx2 / 2);
-        }else{
-          col_idx1 = col_idx1 / 2;
-          col_idx2 = col_idx2 / 2;
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel='stylesheet' type='text/css' media='screen' href='main.css'>
+    <script src='main.js'></script>
+    <style>
+        table {
+            width: 500px;
+            margin: 0 auto;
         }
-        $(a).attr('colspan', col_idx1);
-        $(a).after('<td colspan = ' + col_idx2 + '>' + '<input type = "checkbox"  name = "ch_box">' + '</td>');
-      }
-      });
-  });
-</script>
+
+        tr {
+            height: 20px;
+        }
+
+        td {
+            width: 60px;
+        }
+
+        div {
+            width: 70%;
+            margin: 0 auto;
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <br><br><br>
+        <button id='add_row'>행 추가</button>
+        <button id='del_row'>행 삭제</button>
+        <button id='add_cell'>셀 추가</button>
+        <hr>
+        <table id="mytable" border="1">
+            <thead>
+                <tr>
+                    <th colspan=100>표</th>
+                </tr>
+            </thead>
+            <tbody></tbody>
+        </table>
+    </div>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <script>
+        var num_col = 100;
+        $('#add_row').click(function () {
+            $('#mytable > tbody:last').append('<tr><td colspan = ' + num_col + '>' + '<input type = "checkbox" name = "ch_box">' + '</td></tr>');
+        });
+        $('#del_row').click(function () {
+            $('#mytable > tbody > tr:last').remove();
+        });
+        $('#add_cell').click(function () {
+            $("input:checkbox[name='ch_box']:checked").each(function (k, kVal) {
+                let cell = kVal.parentElement
+                var col_idx1 = $(cell).attr('colspan');
+                var col_idx2 = col_idx1;
+                if (col_idx1 >= 2) {
+                    if (col_idx1 % 2 == 1) {
+                        col_idx1 = parseInt(col_idx1 / 2) + 1;
+                        col_idx2 = parseInt(col_idx2 / 2);
+                    } else {
+                        col_idx1 = col_idx1 / 2;
+                        col_idx2 = col_idx2 / 2;
+                    }
+                    $(cell).attr('colspan', col_idx1);
+                    $(cell).after('<td colspan = ' + col_idx2 + '>' + '<input type = "checkbox"  name = "ch_box">' + '</td>');
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
