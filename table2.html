@@ -54,7 +54,7 @@
         });
         $('#add_cell').click(function () {
             $("input:checkbox[name='ch_box']:checked").each(function (k, kVal) {
-                let cell = kVal.parentElement
+                var cell = kVal.parentElement
                 var col_idx1 = $(cell).attr('colspan');
                 var col_idx2 = col_idx1;
                 if (col_idx1 >= 2) {
