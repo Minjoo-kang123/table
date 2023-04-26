@@ -10,17 +10,23 @@
         table {
             width: 1000px;
             margin: 0 auto;
-            border: 1px solid #444444;
         }
+
+        table,
+        td,
+        th {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        ;
 
         tr {
             height: 20px;
-            border: 1px solid #444444;
         }
 
         td {
             width: 60px;
-            border: 1px solid #444444;
         }
 
         div {
@@ -36,8 +42,9 @@
         <button id='add_row'>행 추가</button>
         <button id='del_row'>행 삭제</button>
         <button id='add_cell'>셀 추가</button>
-        <br><hr>
-        <table id="mytable" >
+        <br>
+        <hr>
+        <table id="mytable">
             <thead>
                 <tr>
                     <th colspan=100>표</th>
